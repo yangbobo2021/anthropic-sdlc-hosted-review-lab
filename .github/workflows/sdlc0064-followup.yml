@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2026 boob.yang
+name: SDLC-0064 synthetic follow-up CI
+on:
+  pull_request:
+    branches: [sdlc0064-followup-sandbox]
+    types: [opened, reopened, synchronize]
+    paths:
+      - lab/sdlc0064/**
+permissions:
+  contents: read
+jobs:
+  runtime:
+    name: sdlc0064-runtime
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify the synthetic configuration
+        run: python3 lab/sdlc0064/verify.py
