@@ -1,0 +1,13 @@
+name: Synthetic provider identity probe
+on:
+  push:
+    branches: [codex/approvals-source-probe]
+permissions: {}
+jobs:
+  foreign-provider:
+    name: Claude Approvals
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - run: |
+          printf '%s\n' 'Synthetic check used to verify GitHub provider binding.'
