@@ -1,0 +1,34 @@
+{
+  "important": {
+    "repo": "Topsort/nats-jetstream-docker",
+    "pr": 1,
+    "sha": "ce72157d0626b395787497a1fc81397260f88718",
+    "check_id": 139315517929,
+    "expected": "failure",
+    "counts": {"nit": 1, "normal": 2, "pre_existing": 0}
+  },
+  "clean": {
+    "repo": "snackpass/tochi-me",
+    "pr": 1,
+    "sha": "2366c4e503b914dd9314f98efd8e6aac1e6ef36a",
+    "check_id": 139464485432,
+    "expected": "success",
+    "counts": {"nit": 0, "normal": 0, "pre_existing": 0}
+  },
+  "kept-clean": {
+    "repo": "garnet-labs/claude-ship-garnet",
+    "pr": 6,
+    "sha": "e005bc0c3a481c90da8e2a0979799729546bec7c",
+    "check_id": 139736769919,
+    "expected": "success",
+    "counts": {"nit": 0, "normal": 0, "pre_existing": 0}
+  },
+  "declined": {
+    "repo": "garnet-labs/claude-ship-garnet",
+    "pr": 2,
+    "sha": "6b7120dcb078ebda893cbceadeb69b6ea5f52ffc",
+    "check_id": 139732454172,
+    "expected": "failure",
+    "counts": null
+  }
+}

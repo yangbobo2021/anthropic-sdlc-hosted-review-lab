@@ -1,0 +1,35 @@
+{
+  "events": [
+    "pull_request",
+    "merge_group"
+  ],
+  "checks": [
+    {
+      "name": "build",
+      "producer": "trusted-build-app",
+      "may_be_not_applicable": false,
+      "app_id": 0
+    },
+    {
+      "name": "review-evidence",
+      "producer": "trusted-review-app",
+      "may_be_not_applicable": false,
+      "app_id": 0
+    }
+  ],
+  "blocking_severities": [
+    "critical",
+    "important"
+  ],
+  "exception_approvers": [
+    "security-owner"
+  ],
+  "human_approvers": [
+    "maintainer",
+    "security-owner"
+  ],
+  "minimum_humans": 1,
+  "claude_app_id": 0,
+  "queue_receipt_check": "trusted-merge-group-review",
+  "queue_receipt_app_id": 0
+}

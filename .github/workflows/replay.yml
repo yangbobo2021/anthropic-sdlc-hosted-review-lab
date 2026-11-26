@@ -1,0 +1,32 @@
+name: Replay hosted review gate
+on:
+  workflow_dispatch:
+    inputs:
+      case:
+        type: choice
+        required: true
+        options: [clean, important]
+permissions:
+  contents: read
+  pull-requests: read
+  checks: write
+jobs:
+  gate:
+    if: github.repository == 'yangbobo2021/anthropic-sdlc-hosted-review-lab' && github.ref == 'refs/heads/main' && github.ref_protected && github.actor == 'yangbobo2021'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Replay the public report against its original SHA
+        env:
+          REPLAY_CASE: ${{ inputs.case }}
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python3 replay.py --case "$REPLAY_CASE" --out receipt.json
+      - name: Publish only the sandbox replay result
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPLAY_CASE: ${{ inputs.case }}
+        run: python3 publish_replay.py
