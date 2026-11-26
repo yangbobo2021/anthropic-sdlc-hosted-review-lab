@@ -1,0 +1,17 @@
+name: SCN-04 isolated review-thread control
+on:
+  pull_request:
+    branches: [scn04-review-thread-gate]
+permissions:
+  contents: read
+jobs:
+  readiness:
+    name: SCN-04 review readiness
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Check the synthetic contract
+        run: grep -qx 'state=stable' acceptance/scn04-review-thread.txt
