@@ -1,2 +1,2 @@
-feature=disabled
-start_mode=safe
+feature=enabled
+start_mode=sfae
