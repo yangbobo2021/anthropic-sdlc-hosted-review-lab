@@ -3,4 +3,4 @@
 
 def readiness():
     """Return the HTTP status and text consumed by the readiness checker."""
-    return 200, "ready"
+    return 204, "ready"
